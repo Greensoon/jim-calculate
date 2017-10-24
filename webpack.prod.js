@@ -7,40 +7,33 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractLess = new ExtractTextPlugin({
-  filename: "[hash].css"
+  filename: "index.min.css"
 });
 
 module.exports = {
   entry: './src/index.js',
-  devtool: 'source-map',
+  devtool: 'none',
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'h5 webpack优化版',
-      template: './index.html',
-      inject: 'body',
+    extractLess,
+    new webpack.LoaderOptionsPlugin({
+      test: /\.css|less$/,
+      minimize: true,
+      debug: false
     }),
-    extractLess
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+      output: {
+        comments: false
+      }
+    })
   ],
   output: {
-    filename: '[name].js'
-  },
-  devServer: {
-    contentBase: './',
-    stats: 'minimal',
-    historyApiFallback: true,
-    hot: true,
-    port: 3000
+    path: __dirname + '/dist',
+    publicPath: './',
+    filename: 'index.min.js'
   },
   module : {
     rules: [
-    {
-      enforce: 'pre',
-      test: /\.js$/,
-      loader: 'eslint-loader',
-      query: {
-        esModules: true
-      }
-    },
     {
       test: /\.js$/,
       loader: 'babel-loader',

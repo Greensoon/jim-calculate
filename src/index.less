@@ -14,9 +14,11 @@ body {
 
 	&-wrap {
 		width: 240px;
-		height: 280px;
+		min-height: 280px;
 		border: 1px solid #aaa;
     	border-radius: 5px;
+    	margin: 0 auto;
+    	overflow: hidden;
 	}
 
 	&-row {
@@ -64,10 +66,22 @@ body {
 	    color: #fff;
 	    border-bottom: 1px solid #ddd;
 	}
+
+	&-active {
+		border: 1px solid red;
+	}
+
+	&-12 {
+		font-size: 30px;
+	}
 }
 
 .col {
 	&-25 {
 		width: 25%;
+
+		&:active {
+			background: #ddd;
+		}
 	}
 }

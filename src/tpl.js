@@ -3,12 +3,12 @@ import { createEle } from './utils/dom'
 export default (function() {
 	const tpl = `
 		<div class="jm-row jm-show">
-			<div class="jm-col">0</div>
+			<div class="jm-col jm-ret">0</div>
 		</div>
 		<div class="jm-row">
-			<div class="jm-col col-25">AC</div>
-			<div class="jm-col col-25">+/-</div>
-			<div class="jm-col col-25">%</div>
+			<div class="jm-col col-25 jm-reset">C</div>
+			<div class="jm-col col-25 jm-zf">+/-</div>
+			<div class="jm-col col-25 jm-per">%</div>
 			<div class="jm-col jm-oper col-25">÷</div>
 		</div>
 		<div class="jm-row">
@@ -31,9 +31,9 @@ export default (function() {
 		</div>
 		<div class="jm-row">
 			<div class="jm-col col-25">0</div>
-			<div class="jm-col col-25">.</div>
-			<div class="jm-col col-25">ADD</div>
-			<div class="jm-col jm-oper col-25">=</div>
+			<div class="jm-col col-25 jm-dot">.</div>
+			<div class="jm-col col-25 jm-add">ADD</div>
+			<div class="jm-col jm-oper col-25 jm-eq">=</div>
 		</div>
 	`
 

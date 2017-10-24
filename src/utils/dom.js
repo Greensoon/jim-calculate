@@ -32,3 +32,9 @@ export const addClass = function(dom, clazz) {
 
 	dom.className = dom.className + ' ' + clazz
 }
+
+export const removeClass = function(dom, clazz) {
+	if(hasClass(dom, clazz)) {
+		dom.className = dom.className.replace(new RegExp(clazz), '')
+	}
+}

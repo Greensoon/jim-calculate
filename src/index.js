@@ -4,6 +4,14 @@ import core from './core'
 
 import './index.less'
 
-bodyAppend(tplWrap)
+const jmcaculator = function() {
+	bodyAppend(tplWrap)
 
-core()
+	core()
+}
+
+module.exports = jmcaculator
+
+jmcaculator()
+
+
